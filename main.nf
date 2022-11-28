@@ -5,6 +5,8 @@ include {QC} from './processes/QC'
 include {PCA} from './processes/PCA'
 include {Clustering} from './processes/Clustering'
 include {CallMarkerGene} from './processes/CallMarkerGene'
+include {CellType} from './processes/CellType'
+include {SaveResult} from './processes/SaveResult'
 
 
 workflow {
@@ -12,5 +14,5 @@ workflow {
     if (!outpath.exists())
         outpath.mkdirs()
   ch_mat = channel.fromPath(params.countMat)
-  ch_mat | QC | PCA | Clustering | CallMarkerGene
+  ch_mat | QC | PCA | Clustering | CallMarkerGene | SaveResult
 }
