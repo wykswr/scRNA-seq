@@ -9,7 +9,6 @@ process Clustering {
   #!/usr/bin/env python
 
   import scanpy as sc
-  import os
   import matplotlib.pyplot as plt
 
   adata = sc.read_h5ad('${pbmcH5ad}')
@@ -17,8 +16,7 @@ process Clustering {
   sc.tl.umap(adata)
   sc.tl.louvain(adata)
   sc.pl.umap(adata, color='louvain')
-  os.makedirs('${params.output}/clustering', exist_ok=True)
-  plt.savefig('${params.output}/clustering/louvain.png')
+  plt.savefig('${params.output}/Clustering.png')
   plt.clf()
   adata.write('pbmc.h5ad')
   """
