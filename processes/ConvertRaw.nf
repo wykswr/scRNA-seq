@@ -1,4 +1,4 @@
-process CorverRaw {
+process ConvertRaw {
   label 'cellranger'
   input:
   path 'fastqDir'

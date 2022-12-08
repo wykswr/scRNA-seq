@@ -1,4 +1,15 @@
 # PBMC scRNA-seq cell type annotation
+
+- [PBMC scRNA-seq cell type annotation](#pbmc-scrna-seq-cell-type-annotation)
+  - [Introduction](#introduction)
+    - [Background](#background)
+    - [Purpose](#purpose)
+  - [Workflow](#workflow)
+    - [Diagram](#diagram)
+    - [Dependencies](#dependencies)
+    - [Usage](#usage)
+    - [Output](#output)
+
 ## Introduction
 ### Background
 scRNA-seq has revolutionized the developmental and genetic research in cell level, not only it reveals the cellular genes expression in impressively high precision, but it also can infer the interaction among those cells, obtaining compelling insights about biological mechanism. Some typical instances include cell type annotation and cell differentiation trajectory inference.
