@@ -28,6 +28,7 @@ To find the marker genes for each cell type in scRNA-seq dataset (PBMC is used f
 <p align="center">
   <img src="workflow.drawio.svg" alt="workflow diagram"/>
 </p>
+
 ### Dependencies
 We use Singularity container to make the workflow more portable and robust. 2 main containers are required to set the environment:
 1. docker://nfcore/cellranger:6.1.2
