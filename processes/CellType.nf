@@ -16,7 +16,7 @@ process CellType {
 
   adata = sc.read_h5ad('${pbmcH5ad}')
   sc.tl.rank_genes_groups(adata, 'louvain', method='wilcoxon')
-  pd.DataFrame(adata.uns['rank_genes_groups']['names']).to_csv('${params.output}/MakerGenes.csv', index=False)
+  pd.DataFrame(adata.uns['rank_genes_groups']['names']).to_csv('${params.output}/MarkerGenes.csv', index=False)
   markers = pd.read_csv("${params.markerRef}")
   cell_markers = dict()
   for m in markers.columns:
