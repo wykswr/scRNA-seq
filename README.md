@@ -9,6 +9,7 @@
     - [Dependencies](#dependencies)
     - [Usage](#usage)
     - [Input](#input)
+    - [Data](#data)
     - [Output](#output)
 
 ## Introduction
@@ -24,14 +25,16 @@ The first step is doing the quality control, removing the uninformative cells an
 To find the marker genes for each cell type in scRNA-seq dataset (PBMC is used for demo), and do cell type annotation on that dataset.
 ## Workflow
 ### Diagram
-![workflow](workflow.drawio.svg)
+<p align="center">
+  <img src="workflow.drawio.svg" alt="workflow diagram"/>
+</p>
 ### Dependencies
 We use Singularity container to make the workflow more portable and robust. 2 main containers are required to set the environment:
 1. docker://nfcore/cellranger:6.1.2
-    * Image is stored on dockerhub
+    * Image is stored on [dockerhub](https://hub.docker.com/r/nfcore/cellranger/tags)
     * Cellranger version: 6.1.2
 2. library://wykswr/biof501/sc-rna:1.0
-    * Image is stored on Sylabs
+    * Image is stored on [Sylabs](https://cloud.sylabs.io/library/wykswr/biof501/sc-rna)
     * scanpy
     * MACA
 
@@ -51,6 +54,11 @@ However, converting format using Cellranger may consume several hours, if you wa
 
 `./main.nf --countMat <path> --markerRef <path> --output <path of directory>`
 ### Input
+* fastqs: Raw sequencing files in fastq format from [10Xgenomics](https://www.10xgenomics.com).
+* reference: A transcriptomics reference sequenc.
+* countMat: Gene count matrix.
+* markerRef: A CSV file which tells the marker genes of listed cell type.
+### Data
 
 ### Output
 * Clustering.png: The result of KNN clustering on the quality-controlled PBMC dataset.
