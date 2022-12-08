@@ -8,6 +8,7 @@
     - [Diagram](#diagram)
     - [Dependencies](#dependencies)
     - [Usage](#usage)
+    - [Input](#input)
     - [Output](#output)
 
 ## Introduction
@@ -36,6 +37,21 @@ We use Singularity container to make the workflow more portable and robust. 2 ma
 
 You should [install Singularity](https://docs.sylabs.io/guides/3.0/user-guide/installation.html) on your platform in order to run this pipeline.
 ### Usage
+If you are testing the pipeline on server of BIOF501, go to the project's directory, and type in:
+
+`./main.nf`
+
+Then find the all results in the output folder.
+
+If you start analysis from the fastq files, the API is:
+
+`./main.nf --denovo true --fastqs <path of directory> --reference <path> --markerRef <path> --output <path of directory>`
+
+However, converting format using Cellranger may consume several hours, if you want to start from the gene count matrix, please use this API:
+
+`./main.nf --countMat <path> --markerRef <path> --output <path of directory>`
+### Input
+
 ### Output
 * Clustering.png: The result of KNN clustering on the quality-controlled PBMC dataset.
 * MarkerGenes.csv: The marker genes of each cluster, ranked increasingly by p-value.
