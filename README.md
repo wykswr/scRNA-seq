@@ -49,7 +49,7 @@ I use Singularity container to make the workflow more portable and robust. 2 mai
 You should [install Singularity](https://docs.sylabs.io/guides/3.0/user-guide/installation.html) on your platform in order to run this pipeline.
 ## Usage
 ### Try it on course's server
-To test the pipeline on the server of BIOF501, go to the project's directory, all the data and dependencies have been configured, so just type in:
+To test the pipeline on the server of BIOF501, go to the project's directory (/home/jupyter-wangyk159/scRNA-seq-master), all the data and dependencies have been configured, so just type in:
 
 `./main.nf -w work`
 
