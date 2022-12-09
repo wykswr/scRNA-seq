@@ -11,6 +11,7 @@
     - [Input](#input)
     - [Data](#data)
     - [Output](#output)
+- [Reference](#reference)
 
 ## Introduction
 ### Background
@@ -18,8 +19,8 @@ scRNA-seq has revolutionized the developmental and genetic research in cell leve
 
 In this workflow, I am undertaking the cell type annotation, the dataset can be a very generic 10X genome dataset. For demonstration, a PBMC3k dataset is used as a simple show case. Briefly speaking, human peripheral blood mononuclear cells (PBMCs) dataset is comprised of immune cells with a single, round nucleus that originate in bone marrow and are secreted into peripheral circulation. These cells are critical components of the immune system and are involved in both humoral and cell-mediated immunity, so the cell type portion often encodes some disease related patterns.
 
-In a typical scRNA-seq cell type annotation pipeline, the starting point is a gene count matrix, with rows as cells and columns as genes. Sometime researchers need to start from the raw sequencing data, tools such as the Cellranger are needed to convert the fastq files to gene count matrix.
-The first step is doing the quality control, removing the uninformative cells and genes and abating the batch effect. In next step, principal component analysis (PCA) and uniform manifold approximation projection (UMAP) are applied to find the lower dimensional representation of the genes profile. Then we do a k-nearest neighbors (KNN) clustering on that representation, and use Wilcoxon test to find the marker genes within each cluster, eventually get the cell type annotation after comparing with marker genes database.
+In a typical scRNA-seq cell type annotation pipeline$^{[1]}$, the starting point is a gene count matrix, with rows as cells and columns as genes. Sometime researchers need to start from the raw sequencing data, tools such as the Cellranger are needed to convert the fastq files to gene count matrix.
+The first step is doing the quality control, removing the uninformative cells and genes and abating the batch effect. In next step, principal component analysis (PCA) and uniform manifold approximation projection (UMAP) are applied to find the lower dimensional representation of the genes profile. Then we do a k-nearest neighbors (KNN) clustering on that representation, and use Wilcoxon test to find the marker genes within each cluster, eventually get the cell type annotation after comparing with marker genes database$^{[2]}$.
 
 ### Purpose
 To find the marker genes for each cell type in scRNA-seq dataset (PBMC is used for demo), and do cell type annotation on that dataset.
@@ -75,3 +76,7 @@ However, converting format using Cellranger may consume several hours, so I stro
 * MarkerGenes.csv: The marker genes of each cluster, ranked increasingly by p-value.
 * Annotation.png: The UMAP visualization of cell type annotated dataset.
 * pbmc.h5ad: The meta-dataset, containing the raw data, highly variated genes, high quality cells, PCs, cluster labels, and cell type annotation.
+
+# Reference
+1. Wolf, F. Alexander, Philipp Angerer, and Fabian J. Theis. "SCANPY: large-scale single-cell gene expression data analysis." Genome biology 19.1 (2018): 1-5.
+2. Xu, Yang, et al. "MACA: marker-based automatic cell-type annotation for single-cell expression data." Bioinformatics 38.6 (2022): 1756-1760.
