@@ -1,19 +1,20 @@
 # PBMC scRNA-seq cell type annotation
 
 - [PBMC scRNA-seq cell type annotation](#pbmc-scrna-seq-cell-type-annotation)
-  - [Introduction](#introduction)
+  - [Background and Rationale](#background-and-rationale)
     - [Background](#background)
     - [Purpose](#purpose)
-  - [Workflow](#workflow)
-    - [Diagram](#diagram)
+    - [Workflow](#workflow)
     - [Dependencies](#dependencies)
-    - [Usage](#usage)
+  - [Usage](#usage)
+    - [Try it on course's server](#try-it-on-courses-server)
+    - [General API](#general-api)
     - [Input](#input)
     - [Data](#data)
     - [Output](#output)
 - [Reference](#reference)
 
-## Introduction
+## Background and Rationale
 ### Background
 scRNA-seq has revolutionized the developmental and genetic research in cell level, not only it reveals the cellular genes expression in impressively high precision, but it also can infer the interaction among those cells, obtaining compelling insights about biological mechanism. Some typical instances include cell type annotation and cell differentiation trajectory inference.
 
@@ -30,14 +31,13 @@ Nextflow is powerful, but due to the 2 versions of its syntax, some tutorial may
 2. Encapsulate the environment and parameters setting into the nextflow.config file.
 3. Use Singularity container for more robust environment configuration.
 4. Help the beginner to understand how to use channel and pipe.
-## Workflow
-### Diagram
+### Workflow
 <p align="center">
   <img src="workflow.drawio.svg" alt="workflow diagram"/>
 </p>
 
 ### Dependencies
-We use Singularity container to make the workflow more portable and robust. 2 main containers are required to set the environment:
+I use Singularity container to make the workflow more portable and robust. 2 main containers are required to set the environment:
 1. docker://nfcore/cellranger:6.1.2
     * Image is stored on [dockerhub](https://hub.docker.com/r/nfcore/cellranger/tags)
     * Cellranger version: 6.1.2
@@ -47,12 +47,15 @@ We use Singularity container to make the workflow more portable and robust. 2 ma
     * MACA
 
 You should [install Singularity](https://docs.sylabs.io/guides/3.0/user-guide/installation.html) on your platform in order to run this pipeline.
-### Usage
-To test the pipeline on the server of BIOF501, go to the project's directory, and type in:
+## Usage
+### Try it on course's server
+To test the pipeline on the server of BIOF501, go to the project's directory, all the data and dependencies have been configured, so just type in:
 
 `./main.nf -w work`
 
 Then find the all results in the output folder.
+
+### General API
 
 If you start analysis from the fastq files, the API is:
 
