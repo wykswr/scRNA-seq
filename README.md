@@ -49,17 +49,17 @@ You should [install Singularity](https://docs.sylabs.io/guides/3.0/user-guide/in
 ### Usage
 To test the pipeline on the server of BIOF501, go to the project's directory, and type in:
 
-`./main.nf`
+`./main.nf -w work`
 
 Then find the all results in the output folder.
 
 If you start analysis from the fastq files, the API is:
 
-`./main.nf --denovo true --fastqs <path of directory> --reference <path> --markerRef <path> --output <path of directory>`
+`./main.nf -w work --denovo true --fastqs <path of directory> --reference <path> --markerRef <path> --output <path of directory>`
 
 However, converting format using Cellranger may consume several hours, so I strongly suggest you starting from the gene count matrix, to do so, please use this API:
 
-`./main.nf --countMat <path> --markerRef <path> --output <path of directory>`
+`./main.nf -w work --countMat <path> --markerRef <path> --output <path of directory>`
 ### Input
 * fastqs: Raw sequencing files in fastq format from [10Xgenomics](https://www.10xgenomics.com).
 * reference: A transcriptomics reference sequence.
